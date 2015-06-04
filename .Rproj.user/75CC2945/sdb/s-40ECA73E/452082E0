@@ -1,0 +1,16 @@
+{
+    "contents" : "\n# This is the user-interface definition of a Shiny web application.\n# You can find out more about building applications with Shiny here:\n#\n# http://shiny.rstudio.com\n#\n\nlibrary(shiny)\n\nshinyUI(fluidPage(\n\n  # Application title\n  titlePanel(\"T-distribution versus Normal Distribution\"),\n\n  # Sidebar with a slider input for number of bins\n  sidebarLayout(\n    sidebarPanel(\n      sliderInput(\"df\",\n                  \"Degrees of Freedom:\",\n                  min = 1,\n                  max = 20,\n                  value = 5),\n      sliderInput(\"qnt\",\n                  \"Quantile:\",\n                  min = 0.01,\n                  max = 0.99,\n                  value = .95),\n      p(\"This app allows you to compare various T-distributions and quantiles (in black) to the normal distribution and normal quantiles (in red).\"),\n      p(\"Use the sliders above to select the number of degrees of freedom for the T-distribution, and at which quantile to display a vertical line.\"),\n      p(\"Note that as the degrees of freedom increase, the T-distribution approaches the Normal distribution.\")\n    ),\n\n    # Show a plot of the generated distribution\n    mainPanel(\n      plotOutput(\"distPlot\"),\n      p(\"You Entered the Following Degrees of Freedom\"),\n      verbatimTextOutput(\"df\"),\n      p(\"You entered the Following Quantile\"),\n      verbatimTextOutput(\"qnt\"),\n      p(\"Normal Quantile:\"),\n      verbatimTextOutput(\"nqnt\"),\n      p(\"T Quantile:\"),\n      verbatimTextOutput(\"tqnt\")\n    )\n  )\n))\n",
+    "created" : 1433444117372.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4049089336",
+    "id" : "452082E0",
+    "lastKnownWriteTime" : 1433447105,
+    "path" : "~/Courses/DDP2/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

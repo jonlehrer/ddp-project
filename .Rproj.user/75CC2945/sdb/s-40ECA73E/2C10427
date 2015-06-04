@@ -1,0 +1,16 @@
+{
+    "contents" : "\n# This is the server logic for a Shiny web application.\n# You can find out more about building applications with Shiny here:\n#\n# http://shiny.rstudio.com\n#\n\nlibrary(shiny)\n\nshinyServer(function(input, output) {\n\n  output$distPlot <- renderPlot({\n\n    # generate bins based on input$bins from ui.R\n    x    <- seq(-10, 10, length.out = 200)\n    y    <- dt(x, df=input$df)\n    z <- dnorm(x)\n\n    #plot\n    plot(x, z, ylab=\"p(x)\", type=\"l\", col=\"red\", lty=3, main=\"Probability Distributions\")\n    lines(x, y)\n    abline(v=qt(input$qnt, df=input$df))\n    abline(v=qnorm(input$qnt), lty=3, col=\"red\")\n    \n  })\n  output$qnt <- renderPrint(input$qnt)\n  output$df <- renderPrint(input$df)\n  output$tqnt <- renderPrint(qt(input$qnt, input$df))\n  output$nqnt <- renderPrint(qnorm(input$qnt))\n  \n})\n",
+    "created" : 1433444119775.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4117353832",
+    "id" : "2C10427",
+    "lastKnownWriteTime" : 1433446421,
+    "path" : "~/Courses/DDP2/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
